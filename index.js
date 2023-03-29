@@ -1,17 +1,9 @@
-const express = require('express');
- 
-// Creating express object
-const app = express();
- 
-// Defining port number
-const PORT = 3000;                 
- 
-// Function to serve all static files
-// inside public directory.
-app.use(express.static('public')); 
-app.use('/images', express.static('images'));
- 
-// Server setup
-app.listen(PORT, () => {
-  console.log(`Running server on PORT ${PORT}...`);
-})
+var express = require(‘express’);
+var port = process.env.PORT || 3000;
+var app = express();
+app.get(‘/’, function (req, res) {
+ res.send(JSON.stringify({ Hello: ‘World’}));
+});
+app.listen(port, function () {
+ console.log(`Example app listening on port !`);
+});
